@@ -1,0 +1,353 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+
+	<ui:define name="titulo">Cadastro Usuário</ui:define>
+
+
+	<ui:define name="corpo">
+
+
+		<h:form >
+		
+		<p:messages autoUpdate="true" />
+			<p:panel header="Dados Pessoais">
+			
+				<h:panelGrid columns="2" columnClasses="label, value">
+
+
+					<p:outputLabel for="nomeCandidato" value="Nome Completo" />
+					<p:inputText value="#{cadastroUsuarioBean.usuario.nomeCandidato}"
+						required="true" requiredMessage="Nome Cadidato Obrigatorio" id="nomeCandidato" label="Nome Candidato" />
+
+
+
+					<p:outputLabel for="nomePai" value="Nome do Pai" />
+					<p:inputText value="#{cadastroUsuarioBean.usuario.nomePai}"
+					requiredMessage="Nome do Pai Obrigatorio "
+						required="true" id="nomePai" />
+
+
+					<p:outputLabel for="nomeMae" value="Nome da Mae" />
+					<p:inputText value="#{cadastroUsuarioBean.usuario.nomeMae}"
+						requiredMessage="Nome do Mae Obrigatorio "
+						required="true" id="nomeMae" />
+
+					<p:outputLabel value="CPF" for="cpf" />
+					<p:inputMask id="cpf" size="12" maxlength="11" required="true"
+					requiredMessage="CPF Obrigatorio "
+						mask="999.999.999-99" value="#{cadastroUsuarioBean.usuario.cpf}" />
+
+				</h:panelGrid>
+				<h:panelGrid columns="6" columnClasses="label, value">
+
+
+					<p:outputLabel value="RG" for="rg" />
+					<p:inputMask id="rg" size="12" maxlength="8" mask="9.999.999"
+					requiredMessage="RG Obrigatorio "
+						required="true" value="#{cadastroUsuarioBean.usuario.rg}" />
+
+					<p:outputLabel value="Tipo" for="tipo" />
+					<p:selectOneMenu id="tipo" style="width:125px" 
+					requiredMessage="Tipo Obrigatorio "
+					required="true"
+						value="#{cadastroUsuarioBean.tipoRg}">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItem itemLabel="SDS" itemValue="SDS" />
+						<f:selectItem itemLabel="CTPS" itemValue="CTPS" />
+						<f:selectItem itemLabel="MAER" itemValue="MAER" />
+						<f:selectItem itemLabel="ME" itemValue="ME" />
+						<f:selectItem itemLabel="MM" itemValue="MM" />
+						<f:selectItem itemLabel="PF" itemValue="PF" />
+						<f:selectItem itemLabel="PM" itemValue="PM" />
+						<f:selectItem itemLabel="SSP" itemValue="SSP" />
+						<f:selectItem itemLabel="ZZZZ" itemValue="ZZZZ" />
+
+					</p:selectOneMenu>
+
+					<p:outputLabel value="UF Emissor" for="ufEmissor" />
+					<p:selectOneMenu id="ufEmissor" style="width:125px" required="true"
+					requiredMessage="UF Obrigatorio "
+						value="#{cadastroUsuarioBean.ufEmissor }">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItem itemLabel="AC" itemValue="AC" />
+						<f:selectItem itemLabel="AL" itemValue="AL" />
+						<f:selectItem itemLabel="AP" itemValue="AP" />
+						<f:selectItem itemLabel="AM" itemValue="AM" />
+						<f:selectItem itemLabel="BA" itemValue="BA" />
+						<f:selectItem itemLabel="CE" itemValue="CE" />
+						<f:selectItem itemLabel="DF" itemValue="DF" />
+						<f:selectItem itemLabel="ES" itemValue="ES" />
+						<f:selectItem itemLabel="GO" itemValue="GO" />
+						<f:selectItem itemLabel="MA" itemValue="MA" />
+						<f:selectItem itemLabel="MT" itemValue="MT" />
+						<f:selectItem itemLabel="MS" itemValue="MS" />
+						<f:selectItem itemLabel="MG" itemValue="MG" />
+						<f:selectItem itemLabel="PA" itemValue="PA" />
+						<f:selectItem itemLabel="PB" itemValue="PB" />
+						<f:selectItem itemLabel="PR" itemValue="PR" />
+						<f:selectItem itemLabel="PE" itemValue="PE" />
+						<f:selectItem itemLabel="PI" itemValue="PI" />
+						<f:selectItem itemLabel="RJ" itemValue="RJ" />
+						<f:selectItem itemLabel="RN" itemValue="RN" />
+						<f:selectItem itemLabel="RS" itemValue="RS" />
+						<f:selectItem itemLabel="RO" itemValue="RO" />
+						<f:selectItem itemLabel="RR" itemValue="RR" />
+						<f:selectItem itemLabel="SC" itemValue="SC" />
+						<f:selectItem itemLabel="SP" itemValue="SP" />
+						<f:selectItem itemLabel="SE" itemValue="SE" />
+						<f:selectItem itemLabel="TO" itemValue="TO" />
+
+					</p:selectOneMenu>
+
+
+					<p:outputLabel value="Data Emissão .." for="dataEmissao" />
+					<p:inputMask id="dataEmissao" size="12" maxlength="8"
+						mask="99/99/9999" required="true"
+						requiredMessage="Data Emissao Obrigatorio "
+						value="#{cadastroUsuarioBean.usuario.dataEmissaoRG}" />
+
+
+
+					<p:outputLabel value="Cidade Nascimento" for="cidadeNascimento" />
+					<p:inputText id="cidadeNascimento" size="50" required="true"
+					requiredMessage="Cidade Nascimento Obrigatorio "
+						value="#{cadastroUsuarioBean.usuario.cidadeNascimento}" />
+
+					<p:outputLabel value="Data Nascimento" for="dataNascimento" />
+					<p:inputMask id="dataNascimento" size="12" maxlength="8"
+						mask="99/99/9999" required="true"
+						requiredMessage="Data Nascimento Obrigatorio "
+						value="#{cadastroUsuarioBean.usuario.dataDeNascimento}" />
+
+					<p:outputLabel for="sexo" value="Sexo" />
+					<p:selectOneRadio id="sexo" required="true"
+					requiredMessage="Sexo Obrigatorio "
+						value="#{cadastroUsuarioBean.usuario.sexo}">
+						<f:selectItem itemLabel="Masculino" itemValue="Masculino" />
+						<f:selectItem itemLabel="Feminino" itemValue="Feminino" />
+					</p:selectOneRadio>
+
+
+				</h:panelGrid>
+				
+			</p:panel>
+
+
+			<p:panel header="Dados de endereço">
+
+				<h:panelGrid columns="2" columnClasses="label, value">
+					<p:outputLabel for="logradouro" value="Endereço" />
+					<p:inputText value="#{cadastroUsuarioBean.endereco.logradouro}"
+					requiredMessage="Endereço Obrigatorio "
+						required="true" size="70" id="logradouro" />
+
+					<p:outputLabel for="complemento" value="Complemento" />
+					<p:inputText value="#{cadastroUsuarioBean.endereco.complemento}"
+						size="70" id="complemento" />
+
+					<p:outputLabel value="Bairro" for="bairro" />
+					<p:inputText id="bairro" size="50" required="true"
+					requiredMessage="Bairro Obrigatorio "
+						value="#{cadastroUsuarioBean.endereco.bairro}" />
+
+					<p:outputLabel value="Estado" for="estado" />
+
+					<p:selectOneMenu id="estado" style="width:125px" required="true"
+					requiredMessage="Estado Obrigatorio "
+						value="#{cadastroUsuarioBean.estadoEndereco }">
+
+						<f:selectItem itemLabel="Estado" itemValue="" />
+						<f:selectItem itemLabel="AC" itemValue="AC" />
+						<f:selectItem itemLabel="AL" itemValue="AL" />
+						<f:selectItem itemLabel="AP" itemValue="AP" />
+						<f:selectItem itemLabel="AM" itemValue="AM" />
+						<f:selectItem itemLabel="BA" itemValue="BA" />
+						<f:selectItem itemLabel="CE" itemValue="CE" />
+						<f:selectItem itemLabel="DF" itemValue="DF" />
+						<f:selectItem itemLabel="ES" itemValue="ES" />
+						<f:selectItem itemLabel="GO" itemValue="GO" />
+						<f:selectItem itemLabel="MA" itemValue="MA" />
+						<f:selectItem itemLabel="MT" itemValue="MT" />
+						<f:selectItem itemLabel="MS" itemValue="MS" />
+						<f:selectItem itemLabel="MG" itemValue="MG" />
+						<f:selectItem itemLabel="PA" itemValue="PA" />
+						<f:selectItem itemLabel="PB" itemValue="PB" />
+						<f:selectItem itemLabel="PR" itemValue="PR" />
+						<f:selectItem itemLabel="PE" itemValue="PE" />
+						<f:selectItem itemLabel="PI" itemValue="PI" />
+						<f:selectItem itemLabel="RJ" itemValue="RJ" />
+						<f:selectItem itemLabel="RN" itemValue="RN" />
+						<f:selectItem itemLabel="RS" itemValue="RS" />
+						<f:selectItem itemLabel="RO" itemValue="RO" />
+						<f:selectItem itemLabel="RR" itemValue="RR" />
+						<f:selectItem itemLabel="SC" itemValue="SC" />
+						<f:selectItem itemLabel="SP" itemValue="SP" />
+						<f:selectItem itemLabel="SE" itemValue="SE" />
+						<f:selectItem itemLabel="TO" itemValue="TO" />
+					</p:selectOneMenu>
+					
+					<p:outputLabel value="Cep" for="cep" />
+					<p:inputMask id="cep" size="10" maxlength="8" mask="99999-999"
+						required="true" 
+						requiredMessage="Cep Obrigatorio "
+						value="#{cadastroUsuarioBean.endereco.cep}" />
+
+
+
+					<p:outputLabel value="Cidade" for="cidade" />
+					<p:inputText id="cidade" size="30" required="true"
+					requiredMessage="Cidade Obrigatorio "
+						value="#{cadastroUsuarioBean.endereco.cidade}" />
+
+				</h:panelGrid>
+			</p:panel>
+
+
+			<p:panel header="Informações Contato ">
+
+				<h:panelGrid columns="2" columnClasses="label, value">
+
+
+					<p:outputLabel for="email" value="Email" />
+					<p:inputText value="#{cadastroUsuarioBean.usuario.email}"
+						type="email" id="email" />
+
+					<p:outputLabel for="residencial" value="Telefone Residencial" />
+					<p:inputMask id="residencial" required="true" mask="(99) 9999-9999"
+						label="Telefone Residencial"
+						value="#{cadastroUsuarioBean.usuario.telefone}" />
+
+					<p:outputLabel for="tCelular" value="Telefone Celular: " />
+					<p:inputMask id="tCelular" label="Telefone Celular"
+						mask="(99) 9999-9999"
+						value="#{cadastroUsuarioBean.usuario.celular}" />
+				</h:panelGrid>
+			</p:panel>
+
+
+			<p:panel header="Portador de Deficiencia">
+
+				<h:panelGrid columns="2" columnClasses="label, value">
+
+
+
+					<p:outputLabel value="Atendimento em condições especiais:"
+						for="especiais" />
+
+					<p:selectOneMenu id="especiais" style="width:125px"
+						value="#{cadastroUsuarioBean.defespeciais}">
+						<f:selectItem itemLabel="Não necessito" itemValue="" />
+						<f:selectItem itemLabel="Acidentado" itemValue="Acidentado" />
+						<f:selectItem itemLabel="Amamentação até 6 meses"
+							itemValue="Amamentação até 6 meses" />
+						<f:selectItem itemLabel="Doença" itemValue="Doença" />
+						<f:selectItem itemLabel="Gravidez de Risco"
+							itemValue="Gravidez de Risco" />
+						<f:selectItem itemLabel="Pós-operatório"
+							itemValue="Pós-operatório" />
+
+					</p:selectOneMenu>
+
+
+
+
+					<p:outputLabel value="Deficiência Visual:" for="visual" />
+
+					<p:selectOneMenu id="visual" style="width:125px"
+						value="#{cadastroUsuarioBean.defeVisual}">
+						<f:selectItem itemLabel="Não necessito" itemValue="" />
+						<f:selectItem itemLabel="Ledor" itemValue="Ledor" />
+						<f:selectItem itemLabel="Prova Ampliada"
+							itemValue="Prova Ampliada" />
+						<f:selectItem itemLabel="Prova em Braille"
+							itemValue="Prova em Braille" />
+
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Deficiência Auditiva:" for="auditiva" />
+
+					<p:selectOneMenu id="auditiva" style="width:125px"
+						value="#{cadastroUsuarioBean.defeAuditiva}">
+						<f:selectItem itemLabel="Não necessito" itemValue="" />
+						<f:selectItem itemLabel="Interprete de linguagem de sinais"
+							itemValue="Interprete de linguagem de sinais" />
+
+					</p:selectOneMenu>
+
+
+					<p:outputLabel value="Deficiência Fisica:" for="fisica" />
+
+					<p:selectOneMenu id="fisica" style="width:125px"
+						value="#{cadastroUsuarioBean.defeFisica}">
+						<f:selectItem itemLabel="Não necessito" itemValue="" />
+						<f:selectItem itemLabel="Sala em andar térreo"
+							itemValue="Sala em andar térreo" />
+						<f:selectItem itemLabel="Auxílio para preenchimento"
+							itemValue="Auxílio para preenchimento" />
+						<f:selectItem itemLabel="Mobiliário" itemValue="Mobiliário" />
+
+					</p:selectOneMenu>
+
+
+				</h:panelGrid>
+			</p:panel>
+
+			<p:panel header="Dados do cargo">
+
+
+				<h:panelGrid columns="2" columnClasses="label, value">
+
+					<p:outputLabel value="Cargo:" for="cargo" />
+
+					<p:selectOneMenu id="cargo" style="width:225px" required="true"
+					requiredMessage="Cargo Obrigatorio "
+						value="#{cadastroUsuarioBean.cargo}">
+						<f:selectItem itemLabel="Selecione" itemValue="" />
+						<f:selectItem itemLabel="Educador social - Ensino superior"
+							itemValue="Educador social - Ensino superior" />
+						<f:selectItem itemLabel="Auxiliar administrativo  - Ensino medio"
+							itemValue="Auxiliar administrativo  - Ensino medio" />
+
+						<f:selectItem itemLabel="Digitador  - Ensino medio"
+							itemValue="Digitador  - Ensino medio" />
+
+						<f:selectItem itemLabel="Orientador social - Ensino medio"
+							itemValue="Orientador social - Ensino medio " />
+
+						<f:selectItem itemLabel="Motorista - Ensino medio"
+							itemValue="Motorista - Ensino medio " />
+
+						<f:selectItem itemLabel="Serviço gerais - Ensino fundamental"
+							itemValue="Serviço gerais - Ensino fundamental" />
+
+
+					</p:selectOneMenu>
+
+				</h:panelGrid>
+
+
+
+			</p:panel>
+
+
+			<p:toolbar style="margin-top: 30px">
+
+				<p:toolbarGroup align="right">
+					<p:commandButton value="Cadatrar"
+						action="#{cadastroUsuarioBean.salvar()}" />
+
+				</p:toolbarGroup>
+
+			</p:toolbar>
+
+		</h:form>
+
+	</ui:define>
+
+
+</ui:composition>

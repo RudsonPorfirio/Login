@@ -1,0 +1,132 @@
+@charset "utf-8";
+
+body {
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	margin: 0px;
+	font-weight: normal;
+}
+
+header {
+	padding: 5px 0px;
+	margin-bottom: 20px;
+	height: 30px;
+	
+	background-color: #545454;
+	color: #fff;
+	
+	box-shadow: 0px 2px 2px #ccc;
+}
+
+h1{
+	font-size: 24px;
+	font-weight: 700;
+	padding: 0px;
+	margin: 0px.
+	
+
+	
+}
+
+header > div {
+	margin-left: 8px
+}
+
+#conteudo {
+	padding: 0px 8px
+}
+
+footer {
+	
+
+	padding: 0px 8px;
+	margin-bottom: 100px
+}
+
+
+#menuUsuario {
+	clear: left;
+	float: left;
+	margin-top: 500px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+#areaSistema {
+	background: white;
+	width: 1000px;
+	height: 450px;
+	float: right;
+	clear: right;
+	margin-right: 20px;
+}
+
+
+#login-dialog{
+	
+	width: 290px;
+	margin: auto;
+	margin-top: 150px;
+	
+	}
+	
+.grid-login{
+	background-color: #f2f2f2;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	margin-top: 8px;  
+	padding: 10px;
+	
+	
+}
+
+.grid-login2{
+	background-color: #f2f2f2;
+	border-radius: 8px;
+	border: 1px solid #ccc;
+	margin-top: 3px;  
+	padding: 2px;
+	width: 325px;
+	
+}
+
+/* Painel grid, css do label nome */
+.rotulo{
+	width: 150px;
+	
+}
+.ui-panelgrid td {
+	height: 28px
+}
+
+.ajax-status {
+	position: fixed;
+	top: 55px;
+	right: 10px;
+	width: 35px;
+	height: 35px
+}
+
+
+/* Menu sistema inicio */
+.menu-sistema {
+	border-radius: 8px;
+	border: 1px solid #ccc;
+    border: 0px !important;
+    padding: 0px !important;
+    background: none !important;
+}
+
+.menu-sistema .ui-menu-parent > a .ui-menuitem-text, .menu-sistema > .ui-menu-list > .ui-menuitem > a > .ui-menuitem-text {
+    color: #ffffff !important;
+   
+}
+
+.menu-sistema .ui-icon-triangle-1-s {
+    background: url(#{resource['images:seta-para-baixo.png']}) no-repeat;
+}
+/* Menu sistema fim */
+
+
+
+

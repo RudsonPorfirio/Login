@@ -1,0 +1,53 @@
+<ui:composition template="/WEB-INF/template/LayoutPadrao.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+	<ui:define name="titulo">Pagina Login</ui:define>
+
+
+	<ui:define name="corpo">
+
+		<div id="login-dialog">
+			<center>
+				<H1>Area de Login</H1>
+			</center>
+			<p:messages autoUpdate="true" />
+			<h:form id="frm" prependId="false">
+
+				<p:messages id="messages" autoUpdate="true" closable="true" />
+
+				<h:panelGrid columns="2" rowClasses="3" styleClass="grid-login">
+
+
+					<p:outputLabel value="Email" />
+					<p:inputText size="30" required="true" type="email" label="email" value="#{autenticadorBean.email}" />
+
+					<p:outputLabel value="Senha" />
+					<p:password size="30" required="true" label="Senha" value="#{autenticadorBean.senha}" />
+
+					<h:panelGroup />
+
+					<p:commandButton value="Login" action="#{autenticadorBean.autentica()}"/>
+
+				</h:panelGrid>
+
+				<center>
+					<h:panelGrid columns="2" rowClasses="5">
+
+
+
+					</h:panelGrid>
+				</center>
+
+			</h:form>
+
+		</div>
+
+
+	</ui:define>
+
+
+</ui:composition>
